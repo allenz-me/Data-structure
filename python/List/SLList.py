@@ -46,6 +46,22 @@ class SLList(object):
             p = p.next
         return p.next.item
 
+    # 定义__getitem__方法
+    def __getitem__(self, index:int):
+        return self.get(index)
+
+    def set(self, index:int, item):
+        if index >= self.size:
+            raise IndexError("Index out of range.")
+        p = self.__sentinel
+        for i in range(index):
+            p = p.next
+        p.next = item
+    
+    # 定义__setitem__方法
+    def __setitem__(self, index:int, item):
+        self.set(index, item)
+
     def reverse(self):
         if self.__sentinel.next is None:
             return
@@ -77,7 +93,7 @@ if __name__ == "__main__":
     sl.addFirst(3)
     for i in sl:
         print(i)
-    print(sl.get(2))
+    print(sl[2])
         
 
 

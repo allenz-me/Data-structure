@@ -1,6 +1,6 @@
 
 
-def permutations(nums:list):
+def permutations(nums:list) -> list:
 	# Given a collection of distinct integers, 
 	# return all possible permutations.
 	res = []
